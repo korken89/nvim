@@ -39,8 +39,14 @@ map <C-b> :make <CR> " Builds using make
 map <C-J> :bnext<CR> " Next buffer
 map <C-K> :bprev<CR> " Prev buffer
 
+" Map f4 to switch header/source for c projects
+map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+
+" Map autoformat after bsd rules
+" autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
+
 " Default for YouCompleteMe
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.nvim/.ycm_extra_conf.py"
 
 " Airline settings
 set laststatus=2
