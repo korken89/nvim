@@ -1,4 +1,3 @@
-" Based of Damiano Varagnolo's .vimrc file
 " Manjaro version
 set nocompatible
 set t_Co=256
@@ -9,27 +8,36 @@ set ignorecase
 set smartcase
 set tabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist  " list disables line break
+
+" Fix word wrap
 set textwidth=0
 set wrapmargin=0
+
+" A column line at 80 characters
 set colorcolumn=80
-set spell spelllang=en_us
-set guioptions-=m " Remove menu bar
-set guioptions-=T " Remove tool bar
-set guifont=DejaVuSansMono\ 14
-set number
+
+" Spell checking stuff
 set langmenu=en_US
 let $LANG = 'en_US'
 setlocal spell spelllang=en_us
+
+" Enable cursor line and line numbers
 set cursorline
+set number
+
+" Disable mouse in nvim
 set mouse=
 
-" Navigate spits
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Stop buffers from asking to save when switching
+set hidden
 
-" Navigate buffer
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+" set so the files auto updates when changed on disk
+set autoread
+
+" Keybindings
+map <C-b> :make <CR> " Builds using make
+map <C-J> :bnext<CR> " Next buffer
+map <C-K> :bprev<CR> " Prev buffer
 
 " Default for YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
