@@ -1,6 +1,7 @@
 " Manjaro version
 set nocompatible
 set t_Co=256
+let &path.="src/include,/usr/include/AL,.**"
 execute pathogen#infect()
 tnoremap <esc><esc> <C-\><C-n>
 set incsearch
