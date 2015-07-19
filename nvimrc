@@ -19,6 +19,7 @@ set guifont=DejaVuSansMono\ 14
 set number
 set langmenu=en_US
 let $LANG = 'en_US'
+setlocal spell spelllang=en_us
 set cursorline
 set mouse=
 
@@ -51,13 +52,11 @@ au BufRead,BufNewFile *.ml,*.mli compiler ocaml
 " auto open new tabs
 " au BufAdd,BufNewFile * nested tab sball
 
-" different color schemes depending on the file type
+" Set colorschemes
 syntax enable
 "colorscheme lizard
 colorscheme molokai
 hi Function guifg=lime gui=bold term=bold
-hi cppSTLfunction guifg=orange gui=bold term=bold
-
 hi cppSTLfunction guifg=orange gui=bold term=bold
 
 " Save your backups to a less annoying place than the current directory.
