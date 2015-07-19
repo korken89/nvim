@@ -5,5 +5,5 @@
 3. ???
 4. Profit!
 
-Nothing more is needed, the install script will clone, ownload and install packages that are missing.
-*Only for Manjaro!*
+Nothing more is needed, the install script will clone, download and install packages that are missing.
+**Only for Manjaro!**
