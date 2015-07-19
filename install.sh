@@ -7,11 +7,10 @@ cd ~
 git clone https://github.com/korken89/nvim.git ~/.nvim
 ln -s ~/.nvim/nvimrc ~/.nvimrc
 cd ~/.nvim
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 # Get CLang
-sudo pacman -S clang
+sudo pacman -S clang --needed
 
 # Compile YouCompleteMe
 cd ~/.nvim/bundle/YouCompleteMe
