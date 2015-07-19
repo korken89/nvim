@@ -9,7 +9,10 @@ let &path.="src/include,/usr/include/AL,.**"
 set tags=./tags;$HOME
 
 execute pathogen#infect()
+
+" Set exiting term mode to esc esc
 tnoremap <esc><esc> <C-\><C-n>
+
 set incsearch
 set ignorecase
 set smartcase
