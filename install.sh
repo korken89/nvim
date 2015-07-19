@@ -15,3 +15,9 @@ sudo pacman -S astyle clang --needed
 # Compile YouCompleteMe
 cd ~/.nvim/bundle/YouCompleteMe
 ./install.sh --clang-completer --system-libclang
+
+# Example to add new submodules
+#
+# git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+# git commit -m "Install Fugitive.vim bundle as a submodule."
+#
