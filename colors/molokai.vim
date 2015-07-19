@@ -221,7 +221,7 @@ if &t_Co > 255
    hi Comment         ctermfg=248
    hi CursorColumn                ctermbg=236
    hi ColorColumn                 ctermbg=236
-   hi LineNr          ctermfg=250 ctermbg=236
+   hi LineNr          ctermfg=245 ctermbg=235
    hi NonText         ctermfg=59
 
    hi SpecialKey      ctermfg=59
