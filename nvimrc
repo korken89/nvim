@@ -1,7 +1,13 @@
 " Manjaro version
 set nocompatible
 set t_Co=256
+
+" Paths
 let &path.="src/include,/usr/include/AL,.**"
+
+"Search for tags file, from current directory until home directory
+set tags=./tags;$HOME
+
 execute pathogen#infect()
 tnoremap <esc><esc> <C-\><C-n>
 set incsearch
