@@ -10,7 +10,7 @@ cd ~/.nvim
 git submodule update --init --recursive
 
 # Get CLang
-sudo pacman -S clang --needed
+sudo pacman -S astyle clang --needed
 
 # Compile YouCompleteMe
 cd ~/.nvim/bundle/YouCompleteMe
