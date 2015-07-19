@@ -23,6 +23,14 @@ setlocal spell spelllang=en_us
 set cursorline
 set mouse=
 
+" Navigate spits
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Navigate buffer
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 " Default for YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
@@ -37,9 +45,6 @@ let g:airline#extensions#whitespace#checks = [ 'indent' ]
 
 " Settings for syntax highlight
 let g:cpp_class_scope_highlight = 1
-
-" set cursorline
-highlight CursorLine guibg=blue guifg=NONE
 
 " remove trailing white spaces when saving
 autocmd BufWritePre * :%s/\s\+$//e
