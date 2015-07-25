@@ -44,6 +44,9 @@ set hidden
 " set so the files auto updates when changed on disk
 set autoread
 
+" Hide the buffer for the terminal
+" autocmd TermOpen * set bufhidden=hide
+
 " Keybindings
 map <C-b> :make <CR> " Builds using make
 map <C-J> :bnext<CR> " Next buffer
