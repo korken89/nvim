@@ -8,3 +8,6 @@
 
 # Ignore compiled python files
 *.pyc
+
+# Strange files
+.netrwhist
