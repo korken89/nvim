@@ -24,7 +24,7 @@ sudo pacman -S astyle ctags clang --needed --noconfirm
 
 # Compile YouCompleteMe
 cd ~/.nvim/bundle/YouCompleteMe
-./install.sh --clang-completer --system-libclang
+./install.sh --clang-completer --system-libclang --omnisharp-completer
 
 # Example to add new submodules
 #
