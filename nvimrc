@@ -62,7 +62,7 @@ map <C-J> :bprev<CR> " Prev buffer
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
 " Map autoformat after bsd rules
-" autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
+autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
 
 " Default for YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.nvim/.ycm_extra_conf.py"
