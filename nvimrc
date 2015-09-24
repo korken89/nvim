@@ -13,11 +13,17 @@ execute pathogen#infect()
 " Set exiting term mode to esc esc
 tnoremap <esc><esc> <C-\><C-n>
 
+" Make esc clear a search highlight
+nnoremap <esc> :noh<return><esc>
+
 set incsearch
 set ignorecase
 set smartcase
 set tabstop=4 shiftwidth=4 expandtab
 set wrap linebreak nolist  " list disables line break
+
+" Set scroll offset
+set scrolloff=12
 
 " Fix word wrap
 set textwidth=0
@@ -49,8 +55,8 @@ set autoread
 
 " Keybindings
 map <C-b> :make <CR> " Builds using make
-map <C-J> :bnext<CR> " Next buffer
-map <C-K> :bprev<CR> " Prev buffer
+map <C-K> :bnext<CR> " Next buffer
+map <C-J> :bprev<CR> " Prev buffer
 
 " Map f4 to switch header/source for c projects
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
