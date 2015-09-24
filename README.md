@@ -2,7 +2,7 @@
 
 1. Download the install file with `wget https://github.com/korken89/nvim/raw/master/install.sh`
 2. Make the file executable `chmod +x install.sh`
-3. Run `./install.sh`
+3. Run `./install.sh` - WITHOUT sudo
 4. ???
 5. Profit!
 
