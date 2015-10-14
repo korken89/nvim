@@ -53,6 +53,10 @@ set autoread
 " redraw only when we need to.
 set lazyredraw
 
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
 " Hide the buffer for the terminal
 " autocmd TermOpen * set bufhidden=hide
 
