@@ -50,6 +50,9 @@ set hidden
 " set so the files auto updates when changed on disk
 set autoread
 
+" redraw only when we need to.
+set lazyredraw
+
 " Hide the buffer for the terminal
 " autocmd TermOpen * set bufhidden=hide
 
