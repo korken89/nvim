@@ -10,6 +10,9 @@ set tags=./tags;$HOME
 
 execute pathogen#infect()
 
+" VHDL for taglist
+let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
+
 " Set exiting term mode to esc esc
 tnoremap <esc><esc> <C-\><C-n>
 
