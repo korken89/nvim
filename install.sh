@@ -12,6 +12,7 @@ rm -f ~/.nvimrc
 mkdir -p ~/.nvim
 git clone https://github.com/korken89/nvim.git ~/.nvim
 ln -s ~/.nvim/nvimrc ~/.nvimrc
+ln -s ~/.nvim/ctags ~/.ctags
 cd ~/.nvim
 git submodule update --init --recursive
 
@@ -29,5 +30,5 @@ cd ~/.nvim/bundle/YouCompleteMe
 # Example to add new submodules
 #
 # git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
-# git commit -m "Install Fugitive.vim bundle as a submodule."
+# git commit -m "Installed Fugitive.vim bundle as a submodule."
 #
