@@ -8,6 +8,12 @@ let &path.="src/include,/usr/include/AL,.**"
 "Search for tags file, from current directory until home directory
 set tags=./tags;$HOME
 
+set runtimepath=~/.nvim/
+set runtimepath+=~/.nvim/autoload
+set runtimepath+=~/.nvim/colors
+set runtimepath+=~/.nvim/after/syntax/c
+set runtimepath+=~/.nvim/after/syntax/cpp
+
 execute pathogen#infect()
 
 " VHDL for taglist
