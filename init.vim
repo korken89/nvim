@@ -81,8 +81,8 @@ map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
 
 " Default for YouCompleteMe
-let g:ycm_global_ycm_extra_conf = "~/.nvim/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = "~/.config/nvim/.ycm_extra_conf.py"
 
 " Airline settings
 set laststatus=2
@@ -115,11 +115,11 @@ hi Function guifg=lime gui=bold term=bold
 hi cppSTLfunction guifg=orange gui=bold term=bold
 
 " Save your backups to a less annoying place than the current directory.
-" It saves it to ~/.nvim/backup or . if all else fails.
-if isdirectory('~/.nvim/backup') == 0
-  :silent !mkdir -p ~/.nvim/backup >/dev/null 2>&1
+" It saves it to ~/.config/nvim/backup or . if all else fails.
+if isdirectory('~/.config/nvim/backup') == 0
+  :silent !mkdir -p ~/.config/nvim/backup >/dev/null 2>&1
 endif
 set backupdir-=.
 set backupdir+=.
-set backupdir^=~/.nvim/backup/
+set backupdir^=~/.config/nvim/backup/
 set backup
