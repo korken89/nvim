@@ -77,6 +77,10 @@ map <C-J> :bprev<CR> " Prev buffer
 " Map f4 to switch header/source for c projects
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
+" Close buffer but not split
+" com BW b#<bar>bd#
+nmap ,d :b#<bar>bd#<CR>
+
 " Map autoformat after bsd rules
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
 
