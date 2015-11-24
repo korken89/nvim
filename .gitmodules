@@ -10,3 +10,6 @@
 [submodule "bundle/vim-vhdl"]
 	path = bundle/vim-vhdl
 	url = https://github.com/Cognoscan/vim-vhdl.git
+[submodule "bundle/vim-bufkill"]
+	path = bundle/vim-bufkill
+	url = https://github.com/qpkorr/vim-bufkill
