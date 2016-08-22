@@ -27,6 +27,6 @@ cd ~/.config/nvim/bundle/YouCompleteMe
 
 # Example to add new submodules
 #
-# git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+# git submodule add -b master http://github.com/tpope/vim-fugitive.git bundle/fugitive
 # git commit -m "Installed Fugitive.vim bundle as a submodule."
 #
