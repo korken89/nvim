@@ -9,14 +9,13 @@ sudo pacman -S git tk --needed --noconfirm
 # Get the repo
 cd ~
 mkdir -p ~/.config/nvim
-git clone https://github.com/korken89/nvim.git ~/.config/nvim
-ln -s ~/.config/nvim/ctags ~/.ctags
-cd ~/.config/nvim
-git submodule update --init --recursive
+git clone --recurse-submodules https://github.com/korken89/nvim.git ~/.config/nvim
+#cd ~/.config/nvim
+#git submodule update --init --recursive
 
 # Get dependencies
 yaourt -S python2-trollius --needed --noconfirm
-yaourt -S neovim-git python2-neovim --needed --noconfirm
+yaourt -S neovim python2-neovim --needed --noconfirm
 yaourt -S neovim-symlinks --needed --noconfirm
 
 # Get CLang

@@ -114,6 +114,10 @@ colorscheme molokai
 hi Function guifg=lime gui=bold term=bold
 hi cppSTLfunction guifg=orange gui=bold term=bold
 
+" remap the jump to tag to use YouCompletMe instead, then use jumplist CTRL+I
+" and CTRL+O to jump back and forth
+nnoremap <C-]> :YcmCompleter GoTo <cr>
+
 " Save your backups to a less annoying place than the current directory.
 " It saves it to ~/.config/nvim/backup or . if all else fails.
 if isdirectory('~/.config/nvim/backup') == 0
