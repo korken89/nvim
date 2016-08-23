@@ -13,9 +13,8 @@ git clone https://github.com/korken89/nvim.git ~/.config/nvim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Get dependencies
-yaourt -S python2-trollius --needed --noconfirm
-yaourt -S neovim python2-neovim --needed --noconfirm
-yaourt -S neovim-symlinks --needed --noconfirm
+sudo pacman -S neovim python2-trollius python2-neovim python-neovim --needed --noconfirm
+yaourt -S otf-inconsolata-powerline-git neovim-symlinks --needed --noconfirm
 
 # Get CLang
 sudo pacman -S astyle ctags clang --needed --noconfirm
