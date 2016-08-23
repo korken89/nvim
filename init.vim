@@ -8,6 +8,9 @@ let &path.="src/include,/usr/include/AL,.**"
 "Search for tags file, from current directory until home directory
 set tags=./tags;$HOME
 
+"
+" Plug part, add new plugins here.
+"
 call plug#begin('~/.config/nvim/plugged')
 
 " Using master branch
@@ -25,6 +28,10 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Add plugins to &runtimepath
 call plug#end()
+
+"
+" End of plugins.
+"
 
 " VHDL for taglist
 let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
