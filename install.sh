@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Installs everything for neovim and compiles YouCompleteMe
+# Installs everything for neovim
 #
 
 # Get GIT
@@ -8,10 +8,9 @@ sudo pacman -S git tk --needed --noconfirm
 
 # Get the repo
 cd ~
-mkdir -p ~/.config/nvim
-git clone --recurse-submodules https://github.com/korken89/nvim.git ~/.config/nvim
-#cd ~/.config/nvim
-#git submodule update --init --recursive
+mkdir -p ~/.config/nvim/autoload
+git clone https://github.com/korken89/nvim.git ~/.config/nvim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Get dependencies
 yaourt -S python2-trollius --needed --noconfirm
@@ -21,12 +20,5 @@ yaourt -S neovim-symlinks --needed --noconfirm
 # Get CLang
 sudo pacman -S astyle ctags clang --needed --noconfirm
 
-# Compile YouCompleteMe
-cd ~/.config/nvim/bundle/YouCompleteMe
-./install.sh --clang-completer --system-libclang --omnisharp-completer
-
-# Example to add new submodules
-#
-# git submodule add -b master http://github.com/tpope/vim-fugitive.git bundle/fugitive
-# git commit -m "Installed Fugitive.vim bundle as a submodule."
-#
+# Install vim plugins
+nvim -c PlugInstall

@@ -8,7 +8,23 @@ let &path.="src/include,/usr/include/AL,.**"
 "Search for tags file, from current directory until home directory
 set tags=./tags;$HOME
 
-execute pathogen#infect()
+call plug#begin('~/.config/nvim/plugged')
+
+" Using master branch
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'qpkorr/vim-bufkill'
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --omnisharp-completer' }
+
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Add plugins to &runtimepath
+call plug#end()
 
 " VHDL for taglist
 let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
