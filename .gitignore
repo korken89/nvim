@@ -1,7 +1,7 @@
 # Ignore all files in and the ackup directory
 /backup
 /backup/*
-
+/plugged
 
 # Ignore swap files
 *.swp
