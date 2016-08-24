@@ -6,6 +6,9 @@
 # Get GIT
 sudo pacman -S git tk --needed --noconfirm
 
+# Remove old vim
+sudo pacman -R vim vi --noconfirm
+
 # Get the repo
 cd ~
 mkdir -p ~/.config/nvim/autoload
@@ -17,7 +20,7 @@ sudo pacman -S neovim python2-trollius python2-neovim python-neovim --needed --n
 yaourt -S otf-inconsolata-powerline-git neovim-symlinks --needed --noconfirm
 
 # Get CLang
-sudo pacman -S astyle ctags clang --needed --noconfirm
+sudo pacman -S astyle ctags cmake clang --needed --noconfirm
 
 # Install vim plugins
 nvim -c PlugInstall
