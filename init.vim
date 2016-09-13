@@ -45,7 +45,7 @@ nnoremap <esc> :noh<return><esc>
 set incsearch
 set ignorecase
 set smartcase
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist  " list disables line break
 
 " Set scroll offset
@@ -94,8 +94,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keybindings
 map <C-b> :make <CR> " Builds using make
-map <C-K> :bnext<CR> " Next buffer
-map <C-J> :bprev<CR> " Prev buffer
+map <C-H> :bnext<CR> " Next buffer
+map <C-L> :bprev<CR> " Prev buffer
 
 " Map f4 to switch header/source for c projects
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
