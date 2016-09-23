@@ -21,10 +21,10 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'qpkorr/vim-bufkill'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --omnisharp-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang' }
 
 " Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -94,8 +94,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keybindings
 map <C-b> :make <CR> " Builds using make
-map <C-K> :bnext<CR> " Next buffer
-map <C-J> :bprev<CR> " Prev buffer
+map <C-L> :bnext<CR> " Next buffer
+map <C-H> :bprev<CR> " Prev buffer
 
 " Map f4 to switch header/source for c projects
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
