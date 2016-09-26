@@ -1,8 +1,8 @@
 # nvim - Configuration and install
 
-1. Download the install file with `wget https://github.com/korken89/nvim/raw/master/install.sh`
-2. Make the file executable `chmod +x install.sh`
-3. Run `./install.sh` - WITHOUT sudo
+1. Clone to ~/.config/nvim
+2. sudo pacman -S neovim cmake clang
+3. nvim -c PlugInstall
 4. ???
 5. Profit!
 
