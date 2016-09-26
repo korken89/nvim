@@ -11,3 +11,6 @@
 
 # Strange files
 .netrwhist
+
+# spl
+*.spl

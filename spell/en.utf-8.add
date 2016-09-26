@@ -8,7 +8,6 @@ param
 Lexing
 Kalman
 hexacopter
-quadrotor
 multirotor
 multirotors
 quadrotors
