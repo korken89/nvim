@@ -22,3 +22,11 @@ MSF
 Wuthier
 Mahalanobis
 outlier
+Jacobians
+AutoDiff
+Eigen
+PredictionFunctor
+MeasurementFunctor
+ADKalmanFilter
+Wiki
+BaseFunctor
