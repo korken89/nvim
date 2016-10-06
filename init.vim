@@ -23,6 +23,8 @@ Plug 'qpkorr/vim-bufkill'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang' }
 
+Plug 'rhysd/vim-clang-format'
+
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
@@ -140,6 +142,19 @@ hi cppSTLfunction guifg=orange gui=bold term=bold
 " remap the jump to tag to use YouCompletMe instead, then use jumplist CTRL+I
 " and CTRL+O to jump back and forth
 nnoremap <C-]> :YcmCompleter GoTo <cr>
+
+" Settings for clang-format
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "Google",
+            \ "BreakBeforeBraces" : "Stroustrup",
+            \ "AccessModifierOffset" : -2,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,h,cpp,hpp,objc nnoremap <C-f> :<C-u>ClangFormat<CR>
+autocmd FileType c,h,cpp,hpp,objc vnoremap <C-f> :ClangFormat<CR>
 
 " Save your backups to a less annoying place than the current directory.
 " It saves it to ~/.config/nvim/backup or . if all else fails.
