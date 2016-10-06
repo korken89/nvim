@@ -22,3 +22,10 @@ MSF
 Wuthier
 Jacobians
 AutoDiff
+AutoDiff
+Eigen
+PredictionFunctor
+MeasurementFunctor
+ADKalmanFilter
+Wiki
+BaseFunctor
