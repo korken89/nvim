@@ -146,7 +146,7 @@ nnoremap <C-]> :YcmCompleter GoTo <cr>
 " Settings for clang-format
 let g:clang_format#style_options = {
             \ "BasedOnStyle" : "Google",
-            \ "BreakBeforeBraces" : "Stroustrup",
+            \ "BreakBeforeBraces" : "Allman",
             \ "AccessModifierOffset" : -2,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
