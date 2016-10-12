@@ -20,8 +20,9 @@ UAV
 Vicon
 MSF
 Wuthier
+Mahalanobis
+outlier
 Jacobians
-AutoDiff
 AutoDiff
 Eigen
 PredictionFunctor
