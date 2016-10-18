@@ -150,6 +150,9 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -2,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "AlignTrailingComments" : "true",
+            \ "AlignConsecutiveAssignments" : "true",
+            \ "AlignOperands" : "true",
             \ "TabWidth" : "2",
             \ "UseTab" : "Never",
             \ "Standard" : "C++11"}
