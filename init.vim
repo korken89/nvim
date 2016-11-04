@@ -63,7 +63,7 @@ set colorcolumn=80
 " Spell checking stuff
 set langmenu=en_US
 let $LANG = 'en_US'
-setlocal spell spelllang=en_us
+set spell spelllang=en_us
 
 " Enable cursor line and line numbers
 set cursorline

@@ -30,3 +30,4 @@ MeasurementFunctor
 ADKalmanFilter
 Wiki
 BaseFunctor
+eigen
