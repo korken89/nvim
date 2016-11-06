@@ -99,11 +99,17 @@ map <C-b> :make <CR> " Builds using make
 map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
 
+" Fix misspressing :W instead of :w
+command WQ wq
+command Wq wq
+command W  w
+command Q  q
+
 " Map f4 to switch header/source for c projects
 map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
 " Map autoformat after bsd rules
-autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
+" autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
 
 " Default for YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
