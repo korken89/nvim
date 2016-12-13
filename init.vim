@@ -157,7 +157,7 @@ let g:clang_format#style_options = {
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "AlignTrailingComments" : "true",
-            \ "AlignConsecutiveAssignments" : "true",
+            \ "AlignConsecutiveAssignments" : "false",
             \ "AlignOperands" : "true",
             \ "TabWidth" : "2",
             \ "UseTab" : "Never",
