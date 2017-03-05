@@ -67,7 +67,7 @@ set spell spelllang=en_us
 
 " Enable cursor line and line numbers
 set cursorline
-set number
+" set number
 
 " Disable mouse in nvim
 set mouse=
@@ -91,6 +91,11 @@ nnoremap k gk
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+" Relative line numbers
+setlocal number relativenumber
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+"
 " Hide the buffer for the terminal
 " autocmd TermOpen * set bufhidden=hide
 
@@ -168,6 +173,7 @@ let g:clang_format#style_options = {
 " map to <Leader>cf in C++ code
 autocmd FileType c,h,cpp,hpp,objc nnoremap <C-f> :<C-u>ClangFormat<CR>
 autocmd FileType c,h,cpp,hpp,objc vnoremap <C-f> :ClangFormat<CR>
+
 
 " Save your backups to a less annoying place than the current directory.
 " It saves it to ~/.config/nvim/backup or . if all else fails.
