@@ -25,6 +25,10 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 
 Plug 'rhysd/vim-clang-format'
 
+Plug 'scrooloose/nerdtree'
+
+Plug 'korken89/numbers.vim'
+
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
@@ -65,20 +69,8 @@ set langmenu=en_US
 let $LANG = 'en_US'
 set spell spelllang=en_us
 
-" Enable cursor line and line numbers
+" Enable cursor line
 set cursorline
-" set number
-set number relativenumber
-
-" Relative line numbers
-autocmd WinEnter,FocusGained * :setlocal number relativenumber
-autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
-
-" Disable mouse in nvim
-set mouse=
-
-" Stop buffers from asking to save when switching
-set hidden
 
 " set so the files auto updates when changed on disk
 set autoread
@@ -174,6 +166,13 @@ let g:clang_format#style_options = {
 " map to <Leader>cf in C++ code
 autocmd FileType c,h,cpp,hpp,objc nnoremap <C-f> :<C-u>ClangFormat<CR>
 autocmd FileType c,h,cpp,hpp,objc vnoremap <C-f> :ClangFormat<CR>
+
+
+"Auto close if only NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"toggle on Ctrl+n
+map <C-n> :NERDTreeToggle <cr>
 
 
 " Save your backups to a less annoying place than the current directory.
