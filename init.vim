@@ -27,7 +27,7 @@ Plug 'rhysd/vim-clang-format'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'korken89/numbers.vim'
+Plug 'myusuf3/numbers.vim'
 
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
