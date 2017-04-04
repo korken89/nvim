@@ -9,7 +9,7 @@ let &path.="src/include,/usr/include/AL,.**"
 set tags=./tags;$HOME
 
 "
-" Plug part, add new plugins here.
+" Plug part, add new plugins here
 "
 call plug#begin('~/.config/nvim/plugged')
 
@@ -36,7 +36,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 call plug#end()
 
 "
-" End of plugins.
+" End of plugins
 "
 
 " VHDL for taglist
@@ -72,11 +72,14 @@ set spell spelllang=en_us
 " Enable cursor line
 set cursorline
 
-" set so the files auto updates when changed on disk
+" Set so the files auto updates when changed on disk
 set autoread
 
-" redraw only when we need to.
+" Redraw only when we need to
 set lazyredraw
+
+" Make so buffers are allowed to be hidden
+set hidden
 
 " move vertically by visual line
 nnoremap j gj
