@@ -78,7 +78,10 @@ set autoread
 " Redraw only when we need to
 set lazyredraw
 
-" Make so buffers are allowed to be hidden
+" Disable mouse in nvim
+set mouse=
+
+" Stop buffers from asking to save when switching
 set hidden
 
 " move vertically by visual line
