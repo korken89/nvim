@@ -29,7 +29,7 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'myusuf3/numbers.vim'
 
-Plug 'vim-scripts/Rename'
+Plug 'vim-scripts/Rename2'
 
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
