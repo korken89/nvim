@@ -31,6 +31,8 @@ Plug 'myusuf3/numbers.vim'
 
 Plug 'vim-scripts/Rename2'
 
+Plug 'oblitum/rainbow'
+
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
@@ -188,6 +190,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "toggle on Ctrl+n
 map <C-n> :NERDTreeToggle <cr>
+
+" rainbow parenthesis
+let g:rainbow_active = 1
 
 
 " Save your backups to a less annoying place than the current directory.
