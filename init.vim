@@ -29,6 +29,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'myusuf3/numbers.vim'
 
+Plug 'vim-scripts/Rename'
+
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
@@ -157,6 +159,7 @@ nnoremap <C-]> :YcmCompleter GoTo <cr>
 let g:clang_format#style_options = {
             \ "BasedOnStyle" : "Google",
             \ "BreakBeforeBraces" : "Allman",
+            \ "BreakConstructorInitializersBeforeComma" : "true",
             \ "AccessModifierOffset" : -2,
             \ "AllowAllParametersOfDeclarationOnNextLine" : "true",
             \ "AllowShortIfStatementsOnASingleLine" : "false",
