@@ -31,7 +31,7 @@ Plug 'myusuf3/numbers.vim'
 
 Plug 'vim-scripts/Rename2'
 
-Plug 'oblitum/rainbow'
+Plug 'luochen1990/rainbow'
 
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
@@ -193,7 +193,12 @@ map <C-n> :NERDTreeToggle <cr>
 
 " rainbow parenthesis
 let g:rainbow_active = 1
-
+" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+let g:rainbow_conf = {
+            \	'operators': '_,_',
+            \	'parentheses': ['start=/(/ end=/)/ fold', 'start=/{/ end=/}/ fold', 'start=/</ end=/>/ fold'],
+            \}
 
 " Save your backups to a less annoying place than the current directory.
 " It saves it to ~/.config/nvim/backup or . if all else fails.
