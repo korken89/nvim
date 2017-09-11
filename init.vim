@@ -36,6 +36,8 @@ Plug 'luochen1990/rainbow'
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
+Plug 'vim-scripts/a.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -114,7 +116,8 @@ command W  w
 command Q  q
 
 " Map f4 to switch header/source for c projects
-map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+" map <F4> :find %:t:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+map <F4> :A<CR>
 
 " Map autoformat after bsd rules
 " autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --style=bsd
