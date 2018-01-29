@@ -38,6 +38,8 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
 
 Plug 'vim-scripts/a.vim'
 
+Plug 'machakann/vim-highlightedyank'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -186,6 +188,11 @@ let g:clang_format#auto_format_on_insert_leave = 1
 "             \ "TabWidth" : "2",
 "             \ "UseTab" : "Never",
 "             \ "Standard" : "C++11"}
+
+" Highlight yank settings
+let g:highlightedyank_highlight_duration = 1000
+hi HighlightedyankRegion cterm=reverse gui=reverse
+
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,h,cpp,hpp,objc nnoremap <C-f> :<C-u>ClangFormat<CR>
