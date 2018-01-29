@@ -162,27 +162,29 @@ nnoremap <C-]> :YcmCompleter GoTo <cr>
 
 " Settings for clang-format
 let g:clang_format#detect_style_file = "clang-format-5.0"
-let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "Google",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "BreakConstructorInitializersBeforeComma" : "true",
-            \ "AccessModifierOffset" : -2,
-            \ "AllowAllParametersOfDeclarationOnNextLine" : "true",
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "AlignTrailingComments" : "true",
-            \ "AlignConsecutiveAssignments" : "true",
-            \ "AlignEscapedNewlinesLeft" : "true",
-            \ "AlignOperands" : "true",
-            \ "ColumnLimit" : 80,
-            \ "SortIncludes" : "false",
-            \ "SpaceBeforeAssignmentOperators" : "true",
-            \ "SpacesInAngles" : "true",
-            \ "TabWidth" : "2",
-            \ "UseTab" : "Never",
-            \ "Standard" : "C++11"}
+"let g:clang_enable_format_command = 0
+let g:clang_format#detect_style_file = 1
+" let g:clang_format#style_options = {
+"             \ "BasedOnStyle" : "Google",
+"             \ "BreakBeforeBraces" : "Allman",
+"             \ "BreakConstructorInitializersBeforeComma" : "true",
+"             \ "AccessModifierOffset" : -2,
+"             \ "AllowAllParametersOfDeclarationOnNextLine" : "true",
+"             \ "AllowShortIfStatementsOnASingleLine" : "false",
+"             \ "AllowShortFunctionsOnASingleLine" : "false",
+"             \ "AllowShortLoopsOnASingleLine" : "false",
+"             \ "AlwaysBreakTemplateDeclarations" : "true",
+"             \ "AlignTrailingComments" : "true",
+"             \ "AlignConsecutiveAssignments" : "true",
+"             \ "AlignEscapedNewlinesLeft" : "true",
+"             \ "AlignOperands" : "true",
+"             \ "ColumnLimit" : 80,
+"             \ "SortIncludes" : "false",
+"             \ "SpaceBeforeAssignmentOperators" : "true",
+"             \ "SpacesInAngles" : "true",
+"             \ "TabWidth" : "2",
+"             \ "UseTab" : "Never",
+"             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,h,cpp,hpp,objc nnoremap <C-f> :<C-u>ClangFormat<CR>
