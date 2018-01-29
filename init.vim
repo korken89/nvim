@@ -164,6 +164,7 @@ nnoremap <C-]> :YcmCompleter GoTo <cr>
 let g:clang_format#command = "clang-format-5.0"
 let g:clang_format#enable_fallback_style = 0
 let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format_on_insert_leave = 1
 " let g:clang_format#style_options = {
 "             \ "BasedOnStyle" : "Google",
 "             \ "BreakBeforeBraces" : "Allman",
