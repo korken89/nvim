@@ -162,7 +162,7 @@ nnoremap <C-]> :YcmCompleter GoTo <cr>
 
 " Settings for clang-format
 let g:clang_format#command = "clang-format-5.0"
-"let g:clang_enable_format_command = 0
+let g:clang_format#enable_fallback_style = 0
 let g:clang_format#detect_style_file = 1
 " let g:clang_format#style_options = {
 "             \ "BasedOnStyle" : "Google",
