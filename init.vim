@@ -40,6 +40,8 @@ Plug 'vim-scripts/a.vim'
 
 Plug 'machakann/vim-highlightedyank'
 
+Plug 'jlanzarotta/bufexplorer'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -107,7 +109,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " autocmd TermOpen * set bufhidden=hide
 
 " Keybindings
-map <C-b> :make <CR> " Builds using make
+map <C-b> :BufExplorer<CR> " Explore buffers
+"map <C-b> :make <CR> " Builds using make
 map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
 
