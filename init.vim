@@ -210,6 +210,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "toggle on Ctrl+n
 map <C-n> :NERDTreeToggle <cr>
 
+" Rust stuff
+" autocmd FileType rs nnoremap <C-f> :<C-u>RustFmt<CR>
+" autocmd FileType rs vnoremap <C-f> :RustFmt<CR>
+let g:rustfmt_autosave = 1
+
+
 " rainbow parenthesis
 let g:rainbow_active = 1
 " let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
