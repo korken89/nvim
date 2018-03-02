@@ -21,7 +21,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'qpkorr/vim-bufkill'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer --system-libclang' }
 
 Plug 'rhysd/vim-clang-format'
 
@@ -41,6 +41,8 @@ Plug 'vim-scripts/a.vim'
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'jlanzarotta/bufexplorer'
+
+Plug 'rust-lang/rust.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
