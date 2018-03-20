@@ -1,7 +1,5 @@
 overridable
 ISR
-mly
-isr
 Varagnolo's
 OCaml
 param
@@ -25,16 +23,12 @@ outlier
 Jacobians
 AutoDiff
 Eigen
-PredictionFunctor
-MeasurementFunctor
-ADKalmanFilter
 Wiki
-BaseFunctor
 eigen
 Odometry
-WideBand
+Wideband
 Invensense
-multipathing
+multipath
 odometry
 IMU
 Decawave
