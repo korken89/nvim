@@ -51,6 +51,10 @@ call plug#end()
 " End of plugins
 "
 
+" Enable folding
+set foldmethod=syntax
+set foldcolumn=1
+
 " VHDL for taglist
 let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
 
