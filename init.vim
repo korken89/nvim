@@ -51,9 +51,13 @@ call plug#end()
 " End of plugins
 "
 
-" Enable folding
+" Enable folding, automatically unfold for small files
 set foldmethod=syntax
 set foldcolumn=1
+
+if line('$') < 100
+   set foldlevel=99
+endif
 
 " VHDL for taglist
 let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
