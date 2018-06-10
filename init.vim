@@ -222,7 +222,7 @@ map <C-n> :NERDTreeToggle <cr>
 " autocmd FileType rs nnoremap <C-f> :<C-u>RustFmt<CR>
 " autocmd FileType rs vnoremap <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
-
+let g:rustfmt_command = "rustfmt +nightly"
 
 " rainbow parenthesis
 let g:rainbow_active = 1
