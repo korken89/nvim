@@ -42,7 +42,7 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'jlanzarotta/bufexplorer'
 
-Plug 'rust-lang/rust.vim'
+Plug 'korken89/rust.vim', { 'branch': 'rustfmt_0.7' }
 
 " Add plugins to &runtimepath
 call plug#end()
