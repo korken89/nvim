@@ -219,8 +219,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle <cr>
 
 " Rust stuff
-" autocmd FileType rs nnoremap <C-f> :<C-u>RustFmt<CR>
-" autocmd FileType rs vnoremap <C-f> :RustFmt<CR>
+" autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "rustfmt +nightly"
 
