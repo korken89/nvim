@@ -31,7 +31,7 @@ Plug 'myusuf3/numbers.vim'
 
 Plug 'vim-scripts/Rename2'
 
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop' }
@@ -44,6 +44,9 @@ Plug 'jlanzarotta/bufexplorer'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -55,9 +58,7 @@ call plug#end()
 set foldmethod=syntax
 set foldcolumn=1
 
-if line('$') < 100
-   set foldlevel=99
-endif
+autocmd! BufReadPost * :if line('$') < 150 | set foldlevel=99 | else | set foldlevel=1 | endif
 
 " VHDL for taglist
 let g:tlist_vhdl_settings   = 'vhdl;d:package declarations;b:package bodies;e:entities;a:architecture specifications;t:type declarations;p:processes;f:functions;r:procedures'
@@ -144,7 +145,8 @@ let g:ycm_confirm_extra_conf = 0
 " Airline settings
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='luna'
+" let g:airline_theme='luna'
+let g:airline_theme='papercolor'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -166,20 +168,52 @@ au BufRead,BufNewFile *.ml,*.mli compiler ocaml
 
 " Set colorschemes
 syntax enable
-"colorscheme lizard
-colorscheme molokai
-hi Function guifg=lime gui=bold term=bold
-hi cppSTLfunction guifg=orange gui=bold term=bold
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': {
+  \       'allow_bold': 1,
+  \       'allow_italic': 1,
+  \       'override' : {
+  \         'color00' : ['#080808', '15'],
+  \         'linenumber_bg' : ['#080808', '254'],
+  \         'linenumber_fg' : ['#080808', '238'],
+  \         'cursorline' : ['#080808', '255']
+  \       }
+  \     }
+  \   },
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
+set background=light
+colorscheme PaperColor
+
+" let g:solarized_termcolors=256
+" set background=light
+" colorscheme solarized
+
+" colorscheme molokai
+" hi Function guifg=lime gui=bold term=bold
+" hi cppSTLfunction guifg=orange gui=bold term=bold
 
 " remap the jump to tag to use YouCompletMe instead, then use jumplist CTRL+I
 " and CTRL+O to jump back and forth
 nnoremap <C-]> :YcmCompleter GoTo <cr>
 
 " Settings for clang-format
-let g:clang_format#command = "clang-format-5.0"
+let g:clang_format#command = "clang-format"
 let g:clang_format#enable_fallback_style = 0
 let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format_on_insert_leave = 1
+let g:clang_format#auto_format_on_insert_leave = 0
 " let g:clang_format#style_options = {
 "             \ "BasedOnStyle" : "Google",
 "             \ "BreakBeforeBraces" : "Allman",
@@ -219,9 +253,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle <cr>
 
 " Rust stuff
-" autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
+autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
-let g:rustfmt_command = "rustfmt +nightly"
+let g:rustfmt_command = "rustfmt"
+au BufNewFile,BufRead *.rs setlocal colorcolumn=100
 
 " rainbow parenthesis
 let g:rainbow_active = 1
