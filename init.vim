@@ -72,7 +72,7 @@ nnoremap <esc> :noh<return><esc>
 set incsearch
 set ignorecase
 set smartcase
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set wrap linebreak nolist  " list disables line break
 
 " Set scroll offset
