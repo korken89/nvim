@@ -45,7 +45,10 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'rust-lang/rust.vim'
 
 Plug 'altercation/vim-colors-solarized'
+
 Plug 'NLKNguyen/papercolor-theme'
+
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
