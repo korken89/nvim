@@ -47,6 +47,9 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['/home/emifre/Git/cquery/build/release/bin/cquery', '--log-file=/tmp/cq.log', '--init={"cacheDirectory":"/tmp/cquery/"}']
     \ }
 
+" Ignores for search
+set wildignore+=*/target/*,*/build/*
+
 " Enable folding, automatically unfold for small files
 set foldmethod=syntax
 set foldcolumn=1
