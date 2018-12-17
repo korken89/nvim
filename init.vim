@@ -215,7 +215,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Rust stuff
 autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
-let g:rustfmt_command = "rustfmt"
+let g:rustfmt_command = "rustup run stable rustfmt"
 au BufNewFile,BufRead *.rs setlocal colorcolumn=100
 
 " Save your backups to a less annoying place than the current directory.
