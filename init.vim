@@ -17,7 +17,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'myusuf3/numbers.vim'
 Plug 'vim-scripts/Rename2'
 Plug 'machakann/vim-highlightedyank'
-Plug 'jlanzarotta/bufexplorer'
+" Plug 'jlanzarotta/bufexplorer'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -105,7 +105,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "
 " Keybindings
 "
-map <C-b> :BufExplorer<CR> " Explore buffers
+"map <C-b> :BufExplorer<CR> " Explore buffers
 "map <C-b> :make <CR> " Builds using make
 map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
