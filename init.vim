@@ -1,3 +1,7 @@
+" Fish doesn't play all that well with others
+set shell=/bin/bash
+let mapleader = "\<Space>"
+
 set nocompatible
 set t_Co=256
 
@@ -6,30 +10,42 @@ set t_Co=256
 "
 call plug#begin('~/.config/nvim/plugged')
 
-" Using master branch
+" VIM enhancements
+Plug 'vim-scripts/Rename2'
+Plug 'qpkorr/vim-bufkill'
+Plug 'rhysd/vim-clang-format'
+
+" GUI enhancements
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'qpkorr/vim-bufkill'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer --system-libclang' }
-Plug 'rhysd/vim-clang-format'
-" Plug 'scrooloose/nerdtree'
-Plug 'myusuf3/numbers.vim'
-Plug 'vim-scripts/Rename2'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'jlanzarotta/bufexplorer'
-" Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Testing stuff from here
+Plug 'myusuf3/numbers.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Fuzzy finder
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Semantic language support
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-Plug 'junegunn/fzf'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" Completion plugins
+Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+
+" LanguageClient enhancements
+" Showing function signature and inline doc.
+Plug 'Shougo/echodoc.vim'
+
+" Syntactic language support
 Plug 'rust-lang/rust.vim'
-Plug 'neomake/neomake'
-Plug 'janko-m/vim-test'
+Plug 'cespare/vim-toml'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -38,7 +54,16 @@ call plug#end()
 " End of plugins
 "
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+
+" Set grep tool
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+endif
+if executable('rg')
+	set grepprg=rg\ --no-heading\ --vimgrep
+	set grepformat=%f:%l:%c:%m
+endif
 
 " LanguageClient
 let g:LanguageClient_autoStart = 1
@@ -55,11 +80,16 @@ set foldmethod=syntax
 set foldcolumn=1
 autocmd! BufReadPost * :if line('$') < 150 | set foldlevel=99 | else | set foldlevel=1 | endif
 
+" Sane searching
 set incsearch
 set ignorecase
 set smartcase
+
 set tabstop=4 shiftwidth=4 expandtab
 set wrap linebreak nolist
+
+" Do not show mode
+set noshowmode
 
 " Set scroll offset
 set scrolloff=12
@@ -88,8 +118,11 @@ set lazyredraw
 " Disable mouse in nvim
 set mouse=
 
+set shortmess+=c
+
 " Stop buffers from asking to save when switching
 set hidden
+
 
 " move vertically by visual line
 nnoremap j gj
@@ -102,6 +135,15 @@ nnoremap k gk
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " autocmd CompleteDone * pclose
 
+" ALE settings
+let g:ale_sign_column_always = 1
+" only lint on save
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_check_all_targets = 1
+
 "
 " Keybindings
 "
@@ -110,18 +152,54 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
 
+" Open hotkeys
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
+
+" Quick-save
+nmap <leader>w :w<CR>
+
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Make esc clear a search highlight and close a preview window
 nnoremap <esc> :noh<return>:pclose<return><esc>
-
-" remap the jump to tag to use YouCompletMe instead, then use jumplist CTRL+I
-" and CTRL+O to jump back and forth
-" nnoremap <C-]> :YcmCompleter GoTo <cr>
 
 " map <C-n> :NERDTreeToggle <cr>
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Completion
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+" tab to select
+" and don't hijack my enter key
+inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
+
+" <leader>s for Rg search
+noremap <leader>s :Rg<space>
+let g:fzf_layout = { 'down': '~20%' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+\ <bang>0)
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+
+" Jump to next/previous error
+nnoremap <C-j> :cnext<cr>
+nnoremap <C-k> :cprev<cr>
+nmap <silent> L <Plug>(ale_lint)
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nnoremap <C-l> :copen<cr>
+nnoremap <C-g> :cclose<cr>
 
 " Fix misspressing :W instead of :w
 command WQ wq
@@ -216,7 +294,44 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "rustup run stable rustfmt"
-au BufNewFile,BufRead *.rs setlocal colorcolumn=100
+au Filetype rust set colorcolumn=100
+
+" Get fzf to follow colorscheme
+function! s:update_fzf_colors()
+  let rules =
+  \ { 'fg':      [['Normal',       'fg']],
+    \ 'bg':      [['Normal',       'bg']],
+    \ 'hl':      [['Comment',      'fg']],
+    \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
+    \ 'bg+':     [['CursorColumn', 'bg']],
+    \ 'hl+':     [['Statement',    'fg']],
+    \ 'info':    [['PreProc',      'fg']],
+    \ 'prompt':  [['Conditional',  'fg']],
+    \ 'pointer': [['Exception',    'fg']],
+    \ 'marker':  [['Keyword',      'fg']],
+    \ 'spinner': [['Label',        'fg']],
+    \ 'header':  [['Comment',      'fg']] }
+  let cols = []
+  for [name, pairs] in items(rules)
+    for pair in pairs
+      let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
+      if !empty(name) && code > 0
+        call add(cols, name.':'.code)
+        break
+      endif
+    endfor
+  endfor
+  let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
+  let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
+        \ empty(cols) ? '' : (' --color='.join(cols, ','))
+endfunction
+
+augroup _fzf
+  autocmd!
+  autocmd ColorScheme * call <sid>update_fzf_colors()
+augroup END
+
+autocmd VimEnter,ColorScheme * call s:update_fzf_colors()
 
 " Save your backups to a less annoying place than the current directory.
 " It saves it to ~/.config/nvim/backup or . if all else fails.
@@ -227,3 +342,7 @@ set backupdir-=.
 set backupdir+=.
 set backupdir^=~/.config/nvim/backup/
 set backup
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
