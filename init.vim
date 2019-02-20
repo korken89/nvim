@@ -198,7 +198,7 @@ nnoremap <C-k> :cprev<cr>
 nmap <silent> L <Plug>(ale_lint)
 "nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nnoremap <C-l> :copen<cr>
+nnoremap <C-b> :copen<cr>
 nnoremap <C-g> :cclose<cr>
 
 " Fix misspressing :W instead of :w
