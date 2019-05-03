@@ -294,7 +294,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "rustup run stable rustfmt"
-au Filetype rust set colorcolumn=100
+au Filetype rust,cpp,hpp set colorcolumn=100
 
 " Get fzf to follow colorscheme
 function! s:update_fzf_colors()
