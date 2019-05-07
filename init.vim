@@ -98,8 +98,9 @@ set scrolloff=12
 set textwidth=0
 set wrapmargin=0
 
-" A column line at 80 characters
-set colorcolumn=80
+" A column line at 100 characters, except for C
+set colorcolumn=100
+au Filetype c,h set colorcolumn=80
 
 " Spell checking stuff
 set langmenu=en_US
@@ -294,7 +295,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "rustup run stable rustfmt"
-au Filetype rust,cpp,hpp set colorcolumn=100
 
 " Get fzf to follow colorscheme
 function! s:update_fzf_colors()
