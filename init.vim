@@ -154,7 +154,7 @@ map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
 
 " Open hotkeys
-map <C-p> :Files<CR>
+map <C-p> :GFiles<CR>
 nmap <leader>; :Buffers<CR>
 
 " Quick-save
@@ -182,13 +182,13 @@ inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"
 
 " <leader>s for Rg search
 noremap <leader>s :Rg<space>
-let g:fzf_layout = { 'down': '~20%' }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
 \ <bang>0)
+let g:fzf_layout = { 'down': '~20%' }
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
@@ -293,7 +293,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Rust stuff
 autocmd FileType rust nnoremap <buffer> <C-f> :RustFmt<CR>
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 let g:rustfmt_command = "rustup run stable rustfmt"
 
 " Get fzf to follow colorscheme
