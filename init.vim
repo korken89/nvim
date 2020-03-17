@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -140,13 +140,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " autocmd CompleteDone * pclose
 
 " ALE settings
-let g:ale_sign_column_always = 1
-" only lint on save
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_rust_cargo_use_check = 1
-let g:ale_rust_cargo_check_all_targets = 1
+" let g:ale_sign_column_always = 1
+" " only lint on save
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_save = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_rust_cargo_use_check = 1
+" let g:ale_rust_cargo_check_all_targets = 1
 
 "
 " Keybindings
@@ -197,13 +197,15 @@ let g:fzf_layout = { 'down': '~20%' }
 nnoremap <leader><leader> <c-^>
 
 " Jump to next/previous error
-nnoremap <C-j> :cnext<cr>
-nnoremap <C-k> :cprev<cr>
-nmap <silent> L <Plug>(ale_lint)
-"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nnoremap <C-b> :copen<cr>
-nnoremap <C-g> :cclose<cr>
+" nnoremap <C-j> :cnext<cr>
+" nnoremap <C-k> :cprev<cr>
+" nmap <silent> L <Plug>(ale_lint)
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" nnoremap <C-b> :copen<cr>
+" nnoremap <C-g> :cclose<cr>
+nmap <silent> <C-k> <Plug>(coc-diagnostic-next-error)
+nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
 " Fix misspressing :W instead of :w
 command WQ wq
@@ -414,6 +416,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+let g:airline#extensions#coc#enabled = 1
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
@@ -421,21 +424,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " / Coc settings
