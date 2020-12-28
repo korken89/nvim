@@ -16,7 +16,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'rhysd/vim-clang-format'
 
 " GUI enhancements
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
@@ -219,8 +219,10 @@ let g:ycm_confirm_extra_conf = 0
 " Airline settings
 set laststatus=2
 let g:airline_powerline_fonts = 1
+" let g:airline_theme='bubblegum'
 " let g:airline_theme='luna'
-let g:airline_theme='papercolor'
+let g:airline_theme='minimalist'
+" let g:airline_theme='papercolor'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -237,47 +239,51 @@ filetype indent on
 filetype plugin on
 au BufRead,BufNewFile *.ml,*.mli compiler ocaml
 
+" Python settings
+autocmd FileType py nnoremap <C-f> :<C-u>Format<CR>
+autocmd FileType py vnoremap <C-f> :Format<CR>
+
 " auto open new tabs
 " au BufAdd,BufNewFile * nested tab sball
 
 " Set colorschemes
 syntax enable
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.light': {
-  \       'allow_bold': 1,
-  \       'allow_italic': 1,
-  \       'override' : {
-  \         'color00' : ['#080808', '15'],
-  \         'linenumber_bg' : ['#080808', '254'],
-  \         'linenumber_fg' : ['#080808', '238'],
-  \         'cursorline' : ['#080808', '255']
-  \       }
-  \     }
-  \   },
-  \   'language': {
-  \     'python': {
-  \       'highlight_builtins' : 1
-  \     },
-  \     'cpp': {
-  \       'highlight_standard_library': 1
-  \     },
-  \     'c': {
-  \       'highlight_builtins' : 1
-  \     }
-  \   }
-  \ }
-set background=light
-colorscheme PaperColor
+" let g:PaperColor_Theme_Options = {
+"   \   'theme': {
+"   \     'default.light': {
+"   \       'allow_bold': 1,
+"   \       'allow_italic': 1,
+"   \       'override' : {
+"   \         'color00' : ['#080808', '15'],
+"   \         'linenumber_bg' : ['#080808', '254'],
+"   \         'linenumber_fg' : ['#080808', '238'],
+"   \         'cursorline' : ['#080808', '255']
+"   \       }
+"   \     }
+"   \   },
+"   \   'language': {
+"   \     'python': {
+"   \       'highlight_builtins' : 1
+"   \     },
+"   \     'cpp': {
+"   \       'highlight_standard_library': 1
+"   \     },
+"   \     'c': {
+"   \       'highlight_builtins' : 1
+"   \     }
+"   \   }
+"   \ }
+" set background=light
+" colorscheme PaperColor
 
 " let g:solarized_termcolors=256
 " set background=light
 " colorscheme solarized
 
-" colorscheme molokai
-" hi Function guifg=lime gui=bold term=bold
-" hi cppSTLfunction guifg=orange gui=bold term=bold
+colorscheme molokai
+hi Function guifg=lime gui=bold term=bold
+hi cppSTLfunction guifg=orange gui=bold term=bold
 
 " Settings for clang-format
 let g:clang_format#command = "clang-format"
