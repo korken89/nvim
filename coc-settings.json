@@ -1,4 +1,5 @@
 {
     "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
-    "coc.preferences.formatOnSaveFiletypes": ["python"]
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "rust-analyzer.cargo.allFeatures": true
 }
