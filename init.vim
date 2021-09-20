@@ -157,7 +157,7 @@ map <C-L> :bnext<CR> " Next buffer
 map <C-H> :bprev<CR> " Prev buffer
 
 " Open hotkeys
-map <C-p> :GFiles<CR>
+map <C-p> :GFiles --cached --others --exclude-standard<CR>
 nmap <leader>; :Buffers<CR>
 
 " Quick-save
