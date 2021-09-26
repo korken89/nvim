@@ -68,6 +68,9 @@ if executable('rg')
 	set grepformat=%f:%l:%c:%m
 endif
 
+" Random
+command Random :r! openssl rand -hex 8
+
 " LanguageClient
 " let g:LanguageClient_autoStart = 1
 " let g:LanguageClient_serverCommands = {
